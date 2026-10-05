@@ -7,7 +7,6 @@ import { criarProdutoController } from './controllers/ProdutoController';
 import { criarProdutoRoutes } from './routes/produtoRoutes.js';
 
 export const app = express();
-
 app.use(express.json());//reqs em json
 // Middleware: ensina o Express a ler o corpo da requisiçãop e, JSON
 // middleware programas menores destinados a desempenhar uma função específica
