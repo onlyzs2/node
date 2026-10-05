@@ -1,4 +1,4 @@
-export default function criarProdutoModelo({pool}){
+export  function criarProdutoModel({pool}){
     async function listarTodos() {
         const[linhas] = await pool.query('SELECT * FROM produtos');
         return linhas.map(p=>({...p, preco: Number(p.preco)}));

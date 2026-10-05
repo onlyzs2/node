@@ -1,6 +1,6 @@
-import Produto from '..\models'
+import Produto from '../models/Produto.js'
 
-export function criarProduroService({produtoModel}){
+export function criarProdutoService({produtoModel}){
     async function listar() {
         return produtoModel.listarTodos();
     }
