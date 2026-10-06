@@ -27,6 +27,6 @@ app.use((req, res) => {
 })
 
 app.use((erro, req, res, _next) => {
-    console.error('Erro de Sistema: ', erro.message);
-    res.status(500).json({ erro: 'Falha interna do servidor' });
+    console.error('Erro de Sistema: ', erro.mesage);
+    res.status(500).json({ erro: 'Falha interna do servidor', mensagem: erro });
 });

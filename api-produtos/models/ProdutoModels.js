@@ -1,6 +1,6 @@
-export  function criarProdutoModel({pool}){
+export function criarProdutoModel({pool}){
     async function listarTodos() {
-        const[linhas] = await pool.query('SELECT * FROM produtos');
+        const [linhas] = await pool.query('SELECT * FROM produtos');
         return linhas.map(p=>({...p, preco: Number(p.preco)}));
     }
     async function buscarPorId(id) {
@@ -14,5 +14,5 @@ export  function criarProdutoModel({pool}){
         const [resultado] = await pool.query (sql, valores)
          return {...produto, id:resultado.insertId};
     }
-    return(listarTodos, buscarPorId, criar);
+    return{listarTodos, buscarPorId, criar};
 }
