@@ -1,10 +1,10 @@
 export function criarProdutoController({ produtoService }) {
     async function listar(req, res, next) {
         try {
-            const produto = await produtoService.listar();
+            const produtos = await produtoService.listar();
             res.status(200).json({ sucesso: true, dados: produtos });
         }
-        catch { erro } {
+        catch (erro) {
             next(erro);
         }
     }
@@ -12,7 +12,7 @@ export function criarProdutoController({ produtoService }) {
         try {
             const produto = await produtoService.buscarPorId(req.params.id)
             res.status(200).json({ sucesso: true, dados: produto });
-        } catch { erro } {
+        } catch (erro) {
             if (erro instanceof TypeError) return res.status(400).json({ erro: erro.message });
             if (erro.message.includes('não encontrado')) return res.status(404).json({ erro: erro.message });
             next(erro);
